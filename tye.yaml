@@ -1,0 +1,13 @@
+name: companion-solution
+services:
+- name: companion-source-api
+  project: companion-source-api/companion-source-api.csproj
+  bindings:
+    - protocol: http
+      port: 8800
+- name: companion-containerized-api
+  dockerFile: companion-containerized-api/Dockerfile
+  bindings:
+    - protocol: http
+      port: 8801
+      containerPort: 5000

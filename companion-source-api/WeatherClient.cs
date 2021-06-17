@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace source_api
+namespace Application
 {
     public class WeatherClient
     {

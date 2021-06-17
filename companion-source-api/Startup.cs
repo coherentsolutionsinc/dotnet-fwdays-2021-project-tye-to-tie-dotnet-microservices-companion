@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace containerized_api
+namespace Application
 {
     public class Startup
     {
@@ -22,7 +22,11 @@ namespace containerized_api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "remote-containerized_api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "companion-source_api", Version = "v1" });
+            });
+            services.AddHttpClient<WeatherClient>(client =>
+            {
+                client.BaseAddress = Configuration.GetServiceUri("companion-containerized-api");
             });
         }
 
@@ -33,7 +37,7 @@ namespace containerized_api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "containerized_api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "source_api v1"));
             }
 
             app.UseHttpsRedirection();

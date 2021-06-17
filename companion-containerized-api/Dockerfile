@@ -11,16 +11,17 @@ USER appuser
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
-COPY ["containerized-api.csproj", "/containerized-api/"]
-RUN dotnet restore "/containerized-api/containerized-api.csproj"
-COPY . "/containerized-api"
-WORKDIR "/containerized-api"
-RUN dotnet build "containerized-api.csproj" -c Release -o /app/build
+COPY ["companion-containerized-api.csproj", "companion-containerized-api/"]
+RUN dotnet restore "companion-containerized-api/companion-containerized-api.csproj"
+
+WORKDIR /src/companion-containerized-api
+COPY . .
+RUN dotnet build "companion-containerized-api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "containerized-api.csproj" -c Release -o /app/publish
+RUN dotnet publish "companion-containerized-api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "containerized-api.dll"]
+ENTRYPOINT ["dotnet", "companion-containerized-api.dll"]

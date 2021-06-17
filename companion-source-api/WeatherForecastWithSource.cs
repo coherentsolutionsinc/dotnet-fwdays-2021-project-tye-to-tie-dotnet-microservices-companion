@@ -1,11 +1,9 @@
 using System;
 
-namespace source_api
+namespace Application
 {
-    public class WeatherForecastEx
+    public class WeatherForecastWithSource
     {
-        public string City { get; set; }
-
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
@@ -13,5 +11,7 @@ namespace source_api
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
         public string Summary { get; set; }
+
+        public string Source { get; set; }
     }
 }

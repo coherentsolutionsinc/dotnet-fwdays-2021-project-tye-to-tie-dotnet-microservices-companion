@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "containerized-api", "containerized-api\containerized-api.csproj", "{441ACA57-88B6-4260-875D-6E515AC94998}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "companion-containerized-api", "companion-containerized-api\companion-containerized-api.csproj", "{441ACA57-88B6-4260-875D-6E515AC94998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "source-api", "source-api\source-api.csproj", "{14F5304F-0994-4D30-BDF9-8207E4A3DC6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "companion-source-api", "companion-source-api\companion-source-api.csproj", "{14F5304F-0994-4D30-BDF9-8207E4A3DC6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
