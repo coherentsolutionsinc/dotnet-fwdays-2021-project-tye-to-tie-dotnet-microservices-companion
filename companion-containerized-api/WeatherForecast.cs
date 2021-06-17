@@ -1,6 +1,6 @@
 using System;
 
-namespace containerized_api
+namespace Application
 {
     public class WeatherForecast
     {

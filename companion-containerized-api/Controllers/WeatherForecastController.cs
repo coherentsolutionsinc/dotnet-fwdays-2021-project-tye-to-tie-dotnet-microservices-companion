@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
-namespace containerized_api.Controllers
+namespace Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
