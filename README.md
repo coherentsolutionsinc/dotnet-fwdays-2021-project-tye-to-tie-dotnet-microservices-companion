@@ -33,6 +33,8 @@ Please ensure to install:
 > 
 > This is required to debug service containers
 
+* [Project Tye](https://github.com/dotnet/tye) is installed and getting started [tutorial](https://github.com/dotnet/tye/blob/main/docs/tutorials/hello-tye/00_run_locally.md) is finished.
+
 ## Demo
 
 1. Take a look at `tye.yaml`. 
@@ -61,7 +63,7 @@ Please ensure to install:
         * `kubectl get service`
     * Establish port forwarding for `companion-source-api` 
         * `kubectl port-forward svc/companion-source-api 8800:8800`
-18. Open to `request.http` and execute request to `companion-containerized-api`.
+18. Open `request.http` and execute request to `companion-containerized-api`.
 19. Execute `tye undeploy`.
 
 ## Authors
