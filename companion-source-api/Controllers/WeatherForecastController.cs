@@ -10,19 +10,24 @@ namespace Application.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private static readonly string[] Cities = new[]
+        {
+            "Minsk", "Kiev", "New York", "Warsaw", "Berlin", "Lviv"
+        };
+
         [HttpGet]
-        public async Task<IEnumerable<WeatherForecastWithSource>> Get(
+        public async Task<IEnumerable<WeatherForecastWithCity>> Get(
           [FromServices] WeatherClient client)
         {
             var weather = await client.GetWeatherAsync();
 
             var rng = new Random();
-            return weather.Select(i => new WeatherForecastWithSource
+            return weather.Select(i => new WeatherForecastWithCity
             {
+                City = Cities[rng.Next(0, 6)],
                 Date = i.Date,
                 TemperatureC = i.TemperatureC,
-                Summary = i.Summary,
-                Source = "Companion API"
+                Summary = i.Summary
             })
             .ToArray();
         }
